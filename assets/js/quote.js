@@ -73,6 +73,9 @@
     document.querySelectorAll('.calc-nav-tab').forEach(t => {
       if (t.getAttribute('data-tab') === targetTab) {
         t.classList.add('active');
+        try {
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } catch (e) {}
       } else {
         t.classList.remove('active');
       }
