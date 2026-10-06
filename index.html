@@ -345,26 +345,29 @@
               <button type="button" class="hero-tab-pill" data-target="policy" data-i18n="tab_policy">🔄 Policy Transfers</button>
             </div>
 
-            <!-- Fast Form -->
-            <form id="heroQuickForm">
+            <!-- Fast Form (WebMCP Declarative Tool for AI Agents) -->
+            <form id="heroQuickForm" 
+                  toolname="quickQuoteRequest" 
+                  tooldescription="Submit a fast request for auto, renters, DGT vehicle transfer, or policy transfer insurance in Rota."
+                  toolautosubmit="false">
               <div class="hero-form-group">
                 <label for="heroName" class="hero-form-label" data-i18n="lbl_name">Full Name</label>
-                <input type="text" id="heroName" class="hero-form-input" data-i18n-ph="ph_name" placeholder="John Doe / María García" required>
+                <input type="text" id="heroName" class="hero-form-input" data-i18n-ph="ph_name" placeholder="John Doe / María García" toolparamdescription="Full legal name of the applicant" required>
               </div>
 
               <div class="hero-form-group">
                 <label for="heroPhone" class="hero-form-label" data-i18n="lbl_phone">Phone / WhatsApp</label>
-                <input type="tel" id="heroPhone" class="hero-form-input" data-i18n-ph="ph_phone" placeholder="+34 600 000 000 or US number" required>
+                <input type="tel" id="heroPhone" class="hero-form-input" data-i18n-ph="ph_phone" placeholder="+34 600 000 000 or US number" toolparamdescription="Contact phone or WhatsApp number" required>
               </div>
 
               <div class="hero-form-group">
                 <label for="heroVehicle" class="hero-form-label" data-i18n="lbl_vehicle">Vehicle Year, Make & Model</label>
-                <input type="text" id="heroVehicle" class="hero-form-input" data-i18n-ph="ph_vehicle" placeholder="e.g. 2021 Ford Explorer or Seat León">
+                <input type="text" id="heroVehicle" class="hero-form-input" data-i18n-ph="ph_vehicle" placeholder="e.g. 2021 Ford Explorer or Seat León" toolparamdescription="Vehicle year, make, and model">
               </div>
 
               <div class="hero-form-group">
                 <label for="heroSpec" class="hero-form-label" data-i18n="lbl_spec">Vehicle Specification</label>
-                <select id="heroSpec" class="hero-form-select">
+                <select id="heroSpec" class="hero-form-select" toolparamdescription="Specify US specification (imported) or European/Spanish spec">
                   <option value="US Specification" data-i18n="opt_us_spec">US Specification (Imported)</option>
                   <option value="European Specification" data-i18n="opt_eu_spec">European / Spanish Specification</option>
                 </select>
@@ -718,7 +721,11 @@
             <button type="button" class="calc-nav-tab" role="tab" id="tab-policy" aria-selected="false" aria-controls="calc-panel-policy" data-tab="policy" data-i18n="tab_calc_policy">🔄 Policy Transfers & Bundle</button>
           </div>
 
-          <form id="mainQuoteForm" class="calc-form-wrap">
+          <form id="mainQuoteForm" 
+                class="calc-form-wrap"
+                toolname="fullInsuranceQuoteCalculator"
+                tooldescription="Calculate and request an insurance quote for Auto POV, Renters, DGT vehicle transfers, or policy transfers in Rota, Spain."
+                toolautosubmit="false">
             <!-- PANEL 1: AUTO / POV -->
             <div id="calc-panel-auto" class="calc-form-panel" role="tabpanel" aria-labelledby="tab-auto" tabindex="0">
               <div class="calc-fieldset">

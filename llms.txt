@@ -1,0 +1,29 @@
+# KFM Insurance
+
+> Trusted Insurance & Official DGT Vehicle Transfers in Rota for US Military and Expats.
+
+KFM Insurance is a bilingual insurance agency based in Rota, Spain, serving US military personnel assigned to NAVSTA Rota, defense contractors, expats, and local residents for over two decades. Specializes in POV auto insurance, international Green Card issuance for VPC vehicle pickup, SOFA-compliant renters insurance, official DGT vehicle transfers, and policy transfers.
+
+## Core Services
+
+- [Auto & POV Insurance](https://kfminsurance.com/#auto-insurance): Comprehensive and liability insurance for US-spec and European vehicles. Instant Green Card (Carta Verde) printed on the spot for VPC pickup and Pass & Decal registration. 24/7 European roadside assistance from KM 0.
+- [Renters Insurance](https://kfminsurance.com/#renters-insurance): Content, furniture, electronics, and tenant liability coverage fully compliant with US Navy Housing Office and Spanish lease requirements.
+- [Official DGT Vehicle Transfers](https://kfminsurance.com/#dgt-transfers): Professional assistance with vehicle transfer of ownership, matriculation, and registration with the Spanish DGT (Dirección General de Tráfico).
+- [Policy Transfers](https://kfminsurance.com/#policy-transfers): Transfer an existing auto insurance policy to the new vehicle buyer when selling during a PCS, eliminating cancellation fees.
+- [Bundle & Save](https://kfminsurance.com/#bundle-save): Save on renters insurance when bundled with auto insurance, plus multi-vehicle discounts for existing clients.
+- [Military Arrival Guide](https://kfminsurance.com/#guide): Step-by-step guidance for military arrivals in Rota: VPC pickup, insurance issuance, Pass & Decal, and home rental compliance.
+
+## Physical Offices & Contact Information
+
+- **Downtown Rota Office**: Plaza del Triunfo de la Virgen del Rosario Coronada, 7 Bajo, 11520 Rota, Cádiz, Spain. Phone: +34 956 84 00 50.
+- **Base Naval Office**: By the Autoport, NAVSTA Rota, 11530 Rota, Cádiz, Spain.
+- **24/7 Emergency Towing & Claims**: 900 373 737 (toll-free in Spain).
+- **Official WhatsApp Support**: +34 956 81 16 16 (https://wa.me/34956811616).
+- **Email**: info@kfminsurance.com.
+- **Website**: https://kfminsurance.com/
+
+## Structured Data & AI Agent Navigation
+
+AI agents can interact directly with our services using the WebMCP protocol tools exposed on `https://kfminsurance.com/`:
+- `requestInsuranceQuote`: Form and tool to submit quote requests for Auto, Renters, DGT, or Policy transfer.
+- Direct quote navigation: `https://kfminsurance.com/#quote-calculator`

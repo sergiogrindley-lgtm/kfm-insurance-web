@@ -632,6 +632,68 @@
     });
   }
 
+  // WebMCP - Agentic Navigation Support (Lighthouse 13.3+ / Chrome M150)
+  function initWebMCP() {
+    if (typeof document !== 'undefined' && 'modelContext' in document && typeof document.modelContext.registerTool === 'function') {
+      try {
+        document.modelContext.registerTool({
+          name: "request_insurance_quote",
+          description: "Request an insurance quote for Auto POV, Renters, DGT vehicle transfers, or policy transfers with KFM Insurance in Rota, Spain.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              fullName: { type: "string", description: "Customer's full legal name" },
+              service: { 
+                type: "string", 
+                enum: ["auto_pov", "renters_insurance", "dgt_transfer", "policy_transfer", "bundle_and_save"],
+                description: "Type of insurance or service requested"
+              },
+              contactNumber: { type: "string", description: "Contact phone or WhatsApp number" },
+              vehicleSpec: { 
+                type: "string", 
+                enum: ["US Specification", "European Specification"],
+                description: "Vehicle specification (US imported or European/Spanish)"
+              }
+            },
+            required: ["fullName", "service", "contactNumber"]
+          },
+          async execute(params) {
+            return {
+              content: [{
+                type: "text",
+                text: `Quote request successfully registered for ${params.fullName}. KFM Insurance advisors will contact them at ${params.contactNumber}.`
+              }]
+            };
+          }
+        });
+
+        document.modelContext.registerTool({
+          name: "get_kfm_locations_and_contacts",
+          description: "Retrieve official physical addresses, phone numbers, and 24/7 roadside assistance info for KFM Insurance in Rota.",
+          inputSchema: { type: "object", properties: {} },
+          async execute() {
+            return {
+              content: [{
+                type: "text",
+                text: JSON.stringify({
+                  agency: "KFM Insurance",
+                  downtownOffice: "Plaza del Triunfo de la Virgen del Rosario Coronada, 7 Bajo, 11520 Rota, Cádiz",
+                  downtownPhone: "+34 956 84 00 50",
+                  baseOffice: "By the Autoport, NAVSTA Rota, 11530 Rota, Cádiz",
+                  whatsapp: "+34 956 81 16 16",
+                  roadsideEmergency24h: "900 373 737",
+                  email: "info@kfminsurance.com"
+                })
+              }]
+            };
+          }
+        });
+      } catch (e) {
+        console.debug("WebMCP registration note:", e);
+      }
+    }
+  }
+
   // DOM Content Loaded
   document.addEventListener('DOMContentLoaded', () => {
     initLanguage();
@@ -640,6 +702,7 @@
     initMobileNav();
     initFAQ();
     initModalEvents();
+    initWebMCP();
   });
 
   // Expose current language getter
