@@ -249,7 +249,7 @@
 
       // Nav
       nav_auto: "Auto & POV",
-      nav_home: "Seguro Inquilinos",
+      nav_home: "Hogar e Inquilinos",
       nav_dgt: "Transferencias DGT",
       nav_policy: "Traspaso Pólizas",
       nav_bundle: "Combina y Ahorra",
@@ -272,7 +272,7 @@
       hero_card_title: "Solicita tu Presupuesto",
       hero_card_sub: "Recibe tu comparativa en minutos",
       tab_auto: "🚗 Auto / Coche",
-      tab_home: "🏠 Inquilinos",
+      tab_home: "🏠 Hogar / Inquilinos",
       tab_dgt: "📋 Transferencias DGT",
       tab_policy: "🔄 Traspaso Póliza",
       lbl_name: "Nombre y Apellidos",
@@ -311,12 +311,12 @@
       srv_auto_btn: "Cotizar Seguro de Auto",
 
       srv_home_badge: "Normativa SOFA",
-      srv_home_title: "Seguro de Inquilinos (Renters)",
+      srv_home_title: "Seguro de Hogar e Inquilinos (Renters)",
       srv_home_desc: "Cobertura diseñada para militares de EE.UU. que residen en España. Cumple con los requisitos de Navy Housing y arrendamiento para proteger tu vivienda y enseres.",
       srv_home_f1: "Cumplimiento con Navy Housing y contrato SOFA",
       srv_home_f2: "Cobertura de mobiliario, enseres y electrónica",
       srv_home_f3: "Responsabilidad civil frente al arrendador y daños",
-      srv_home_btn: "Cotizar Inquilinos",
+      srv_home_btn: "Cotizar Hogar e Inquilinos",
 
       srv_dgt_badge: "Asistencia DGT",
       srv_dgt_title: "Transferencias Oficiales de Vehículos DGT",
@@ -563,13 +563,59 @@
       const isOpen = menu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen);
     });
+  }
 
-    // Close when clicking a nav link
-    menu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+  // Smooth scroll for all internal anchor links WITHOUT exposing # (hash) in browser URL
+  function initSmoothScrollWithoutHash() {
+    // If browser URL currently contains a hash (e.g. from previous load), clean it immediately:
+    if (window.location.hash) {
+      const targetHash = window.location.hash;
+      try {
+        const initialTarget = document.querySelector(targetHash);
+        if (initialTarget) {
+          setTimeout(() => {
+            initialTarget.scrollIntoView({ behavior: 'smooth' });
+          }, 80);
+        }
+      } catch (err) {}
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+
+    // Intercept clicks on any internal anchor
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      e.preventDefault();
+
+      // Close mobile menu drawer if open
+      const menu = document.querySelector('.nav-menu');
+      const toggle = document.querySelector('.mobile-toggle');
+      if (menu && menu.classList.contains('open')) {
         menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-      });
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (hash === '#top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        try {
+          const target = document.querySelector(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        } catch (err) {}
+      }
+
+      // CRITICAL: Clean address bar - NEVER show #hash in browser URL
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
     });
   }
 
@@ -700,6 +746,7 @@
     bindLanguageButtons();
     initStickyNavbar();
     initMobileNav();
+    initSmoothScrollWithoutHash();
     initFAQ();
     initModalEvents();
     initWebMCP();
