@@ -14,49 +14,184 @@
   <link rel="alternate" hreflang="es" href="https://kfminsurance.com/">
   <link rel="alternate" hreflang="x-default" href="https://kfminsurance.com/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph & Twitter -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KFM Insurance">
   <meta property="og:title" content="KFM Insurance | Trusted Insurance in Rota for US Military">
   <meta property="og:description" content="Get your Green Card for picking up your vehicle from VPC, renters insurance, official DGT vehicle transfers, and policy transfers. Two locations: Downtown Rota & on Base by the Autoport.">
-  <meta property="og:image" content="assets/img/logo.png">
+  <meta property="og:image" content="https://kfminsurance.com/assets/img/logo.png">
+  <meta property="og:url" content="https://kfminsurance.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KFM Insurance | Trusted Insurance in Rota for US Military">
+  <meta name="twitter:description" content="Trusted insurance in Rota for US Military. Green Card for VPC pickup, renters insurance, official DGT vehicle transfers, and policy transfers.">
+  <meta name="twitter:image" content="https://kfminsurance.com/assets/img/logo.png">
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Favicons for Google Search & Devices -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon-192.png">
+
+  <!-- Structured Data (JSON-LD) with Sitelinks, WebSite Name & FAQ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "InsuranceAgency",
-    "name": "KFM Insurance",
-    "image": "https://kfminsurance.com/assets/img/logo.png",
-    "url": "https://kfminsurance.com",
-    "telephone": "+34956840050",
-    "priceRange": "$$",
-    "address": [
+    "@graph": [
       {
-        "@type": "PostalAddress",
-        "streetAddress": "Plaza del Triunfo de la Virgen del Rosario Coronada, 7 Bajo",
-        "addressLocality": "Rota",
-        "addressRegion": "Cádiz",
-        "postalCode": "11520",
-        "addressCountry": "ES"
+        "@type": "WebSite",
+        "@id": "https://kfminsurance.com/#website",
+        "url": "https://kfminsurance.com/",
+        "name": "KFM Insurance",
+        "alternateName": ["KFM", "KFM Insurance Rota"],
+        "inLanguage": ["en", "es"],
+        "description": "Trusted Insurance in Rota for US Military & Expats. Auto & POV, Renters, DGT Transfers and Policy Transfers."
       },
       {
-        "@type": "PostalAddress",
-        "streetAddress": "By the Autoport, NAVSTA Rota",
-        "addressLocality": "Rota",
-        "addressRegion": "Cádiz",
-        "postalCode": "11530",
-        "addressCountry": "ES"
+        "@type": "InsuranceAgency",
+        "@id": "https://kfminsurance.com/#agency",
+        "name": "KFM Insurance",
+        "url": "https://kfminsurance.com/",
+        "logo": "https://kfminsurance.com/assets/img/favicon-192.png",
+        "image": "https://kfminsurance.com/assets/img/logo.png",
+        "telephone": "+34956840050",
+        "priceRange": "$$",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Plaza del Triunfo de la Virgen del Rosario Coronada, 7 Bajo",
+            "addressLocality": "Rota",
+            "addressRegion": "Cádiz",
+            "postalCode": "11520",
+            "addressCountry": "ES"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "By the Autoport, NAVSTA Rota",
+            "addressLocality": "Rota",
+            "addressRegion": "Cádiz",
+            "postalCode": "11530",
+            "addressCountry": "ES"
+          }
+        ],
+        "sameAs": [
+          "https://wa.me/34956811616"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://kfminsurance.com/#sitelinks",
+        "name": "Main Navigation Sitelinks",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Auto & POV Insurance",
+            "description": "Instant Green Card for VPC pickup & Pass & Decal registration.",
+            "url": "https://kfminsurance.com/#auto-insurance"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Renters Insurance",
+            "description": "Coverage compliant with Navy Housing Office & SOFA lease liability.",
+            "url": "https://kfminsurance.com/#renters-insurance"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Official DGT Vehicle Transfers",
+            "description": "Professional assistance with vehicle registration, plates, and ownership transfer.",
+            "url": "https://kfminsurance.com/#dgt-transfers"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Policy Transfers",
+            "description": "Transfer existing insurance policy directly to the vehicle buyer when selling.",
+            "url": "https://kfminsurance.com/#policy-transfers"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Bundle & Save",
+            "description": "Save on renters insurance when you bundle with auto policy, plus existing customer discounts.",
+            "url": "https://kfminsurance.com/#bundle-save"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "Military Arrival Guide",
+            "description": "4-step checklist for newcomers arriving at NAVSTA Rota.",
+            "url": "https://kfminsurance.com/#guide"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 7,
+            "name": "Offices in Rota",
+            "description": "Downtown Rota & Base Naval Office by the Autoport.",
+            "url": "https://kfminsurance.com/#locations"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 8,
+            "name": "Frequently Asked Questions",
+            "description": "Answers about VPC pickup, US spec vehicles, and English-speaking roadside claims.",
+            "url": "https://kfminsurance.com/#faq"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://kfminsurance.com/#faqpage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How fast can I get my Green Card (Carta Verde)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Immediately! When you visit our office or complete your quote online, we can issue your policy and print your official Green Card on the spot so you can head straight to Pass & Decal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you insure US specification vehicles imported into Spain?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, absolutely. Over 80% of our clients drive US-spec vehicles. We insure American VIN numbers directly without needing European conversion before registration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does my Renters Insurance satisfy the Navy Housing Office requirements?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our renters policies are built specifically around the US Navy Housing Office and SOFA lease standards, covering tenant liability to the Spanish landlord as well as your own personal contents."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can KFM Insurance help me transfer a vehicle and insurance policy when selling my car?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We provide professional assistance with official DGT vehicle transfers and vehicle registration. Furthermore, we can transfer your existing vehicle insurance policy to the buyer when you sell your car, making PCS sales simple and seamless."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Bundle & Save discount work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Save on renters insurance when you insure your vehicle with us! Plus, as an existing customer, enjoy exclusive discounts on additional vehicles you insure with us."
+            }
+          }
+        ]
       }
-    ],
-    "sameAs": [
-      "https://wa.me/34956811616"
     ]
   }
   </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon-48.png">
 </head>
 <body>
 
@@ -97,11 +232,11 @@
 
       <!-- Desktop & Mobile Menu -->
       <nav class="nav-menu" id="navMenu">
-        <a href="#services" class="nav-link" data-i18n="nav_auto">Auto & POV</a>
-        <a href="#services" class="nav-link" data-i18n="nav_home">Renters Insurance</a>
-        <a href="#services" class="nav-link" data-i18n="nav_dgt">DGT Transfers</a>
-        <a href="#services" class="nav-link" data-i18n="nav_policy">Policy Transfers</a>
-        <a href="#services" class="nav-link" data-i18n="nav_bundle">Bundle & Save</a>
+        <a href="#auto-insurance" class="nav-link" data-i18n="nav_auto">Auto & POV</a>
+        <a href="#renters-insurance" class="nav-link" data-i18n="nav_home">Renters Insurance</a>
+        <a href="#dgt-transfers" class="nav-link" data-i18n="nav_dgt">DGT Transfers</a>
+        <a href="#policy-transfers" class="nav-link" data-i18n="nav_policy">Policy Transfers</a>
+        <a href="#bundle-save" class="nav-link" data-i18n="nav_bundle">Bundle & Save</a>
         <a href="#guide" class="nav-link" data-i18n="nav_guide">Base Guide</a>
         <a href="#locations" class="nav-link" data-i18n="nav_locations">Locations</a>
 
@@ -308,7 +443,7 @@
 
         <div class="services-grid">
           <!-- Service 1: Auto & POV -->
-          <article class="service-card">
+          <article class="service-card" id="auto-insurance">
             <div class="service-card-media">
               <img src="assets/img/motor-insurance.jpg" alt="Auto & POV Insurance in Rota" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_auto_badge">Most Requested</span>
@@ -339,7 +474,7 @@
           </article>
 
           <!-- Service 2: Renters Insurance -->
-          <article class="service-card">
+          <article class="service-card" id="renters-insurance">
             <div class="service-card-media">
               <img src="assets/img/home-insurance.jpg" alt="Renters Insurance Rota" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_home_badge">SOFA Compliant</span>
@@ -370,7 +505,7 @@
           </article>
 
           <!-- Service 3: Official DGT Vehicle Transfers -->
-          <article class="service-card">
+          <article class="service-card" id="dgt-transfers">
             <div class="service-card-media">
               <img src="assets/img/advisors.jpg" alt="Official DGT Vehicle Transfers" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_dgt_badge">DGT Assistance</span>
@@ -401,7 +536,7 @@
           </article>
 
           <!-- Service 4: Policy Transfers -->
-          <article class="service-card">
+          <article class="service-card" id="policy-transfers">
             <div class="service-card-media">
               <img src="assets/img/cabecera-dgt.jpg" alt="Policy Transfers" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_policy_badge">PCS Friendly</span>
@@ -432,7 +567,7 @@
           </article>
 
           <!-- Service 5: Bundle & Save -->
-          <article class="service-card">
+          <article class="service-card" id="bundle-save">
             <div class="service-card-media">
               <img src="assets/img/health-insurance.jpg" alt="Bundle and Save Discounts" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_bundle_badge">Exclusive Discount</span>
@@ -993,11 +1128,11 @@
         <div>
           <h3 class="footer-title" data-i18n="footer_links_title">Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="#services" data-i18n="nav_auto">Auto & POV Insurance</a></li>
-            <li><a href="#services" data-i18n="nav_home">Renters Insurance</a></li>
-            <li><a href="#services" data-i18n="nav_dgt">Official DGT Vehicle Transfers</a></li>
-            <li><a href="#services" data-i18n="nav_policy">Policy Transfers</a></li>
-            <li><a href="#services" data-i18n="nav_bundle">Bundle & Save</a></li>
+            <li><a href="#auto-insurance" data-i18n="nav_auto">Auto & POV Insurance</a></li>
+            <li><a href="#renters-insurance" data-i18n="nav_home">Renters Insurance</a></li>
+            <li><a href="#dgt-transfers" data-i18n="nav_dgt">Official DGT Vehicle Transfers</a></li>
+            <li><a href="#policy-transfers" data-i18n="nav_policy">Policy Transfers</a></li>
+            <li><a href="#bundle-save" data-i18n="nav_bundle">Bundle & Save</a></li>
             <li><a href="#guide" data-i18n="nav_guide">Military Arrival Guide</a></li>
             <li><a href="#quote-calculator" data-i18n="nav_quote_btn">Get a Quote</a></li>
           </ul>
