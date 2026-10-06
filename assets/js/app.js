@@ -583,9 +583,16 @@
       header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
         // Close others
-        faqItems.forEach(other => other.classList.remove('active'));
+        faqItems.forEach(other => {
+          other.classList.remove('active');
+          const otherHeader = other.querySelector('.faq-header');
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+        });
         if (!isActive) {
           item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+        } else {
+          header.setAttribute('aria-expanded', 'false');
         }
       });
     });

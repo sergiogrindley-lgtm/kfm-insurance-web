@@ -152,13 +152,15 @@ section[id], [id] {
 }
 
 .badge-green {
-  background-color: var(--accent-green-light);
-  color: var(--accent-green);
+  background-color: #d1fae5;
+  color: #065f46;
+  font-weight: 700;
 }
 
 .badge-amber {
-  background-color: var(--accent-amber-light);
-  color: var(--accent-amber);
+  background-color: #fef3c7;
+  color: #92400e;
+  font-weight: 700;
 }
 
 .section-title {
@@ -203,15 +205,16 @@ section[id], [id] {
 }
 
 .btn-accent {
-  background-color: var(--accent-green);
+  background-color: #047857;
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.25);
+  font-weight: 700;
 }
 
 .btn-accent:hover {
-  background-color: #047857;
+  background-color: #065f46;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 6px 16px rgba(4, 120, 87, 0.35);
 }
 
 .btn-secondary {
@@ -316,10 +319,14 @@ section[id], [id] {
 }
 
 .lang-btn {
-  padding: 3px 8px;
+  padding: 6px 12px;
+  min-height: 38px;
   border-radius: var(--radius-full);
   color: var(--slate-200);
   transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lang-btn.active {
@@ -416,8 +423,12 @@ section[id], [id] {
 
 .mobile-toggle {
   display: none;
+  min-width: 48px;
+  min-height: 48px;
   padding: 0.5rem;
   color: var(--slate-800);
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-toggle svg {
@@ -840,7 +851,7 @@ section[id], [id] {
   right: 1.25rem;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--slate-200);
+  color: #64748b;
   line-height: 1;
 }
 
@@ -887,6 +898,7 @@ section[id], [id] {
   gap: 2rem;
 }
 
+.guide-banner-content h3,
 .guide-banner-content h4 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1309,6 +1321,9 @@ section[id], [id] {
 
 .footer-logo {
   height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
   filter: brightness(0) invert(1);
   margin-bottom: 1.25rem;
 }
