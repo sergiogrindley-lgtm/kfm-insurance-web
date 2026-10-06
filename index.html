@@ -86,56 +86,49 @@
             "position": 1,
             "name": "Auto & POV Insurance",
             "description": "Instant Green Card for VPC pickup & Pass & Decal registration.",
-            "url": "https://kfminsurance.com/#auto-insurance"
+            "url": "https://kfminsurance.com/seguro-auto"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 2,
             "name": "Renters Insurance",
             "description": "Coverage compliant with Navy Housing Office & SOFA lease liability.",
-            "url": "https://kfminsurance.com/#renters-insurance"
+            "url": "https://kfminsurance.com/seguro-hogar"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 3,
             "name": "Official DGT Vehicle Transfers",
             "description": "Professional assistance with vehicle registration, plates, and ownership transfer.",
-            "url": "https://kfminsurance.com/#dgt-transfers"
+            "url": "https://kfminsurance.com/transferencias-dgt"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 4,
             "name": "Policy Transfers",
             "description": "Transfer existing insurance policy directly to the vehicle buyer when selling.",
-            "url": "https://kfminsurance.com/#policy-transfers"
+            "url": "https://kfminsurance.com/traspaso-polizas"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 5,
             "name": "Bundle & Save",
-            "description": "Save on renters insurance when you bundle with auto policy, plus existing customer discounts.",
-            "url": "https://kfminsurance.com/#bundle-save"
+            "description": "Save on renters insurance when you bundle with auto policy.",
+            "url": "https://kfminsurance.com/combina-ahorra"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 6,
             "name": "Military Arrival Guide",
             "description": "4-step checklist for newcomers arriving at NAVSTA Rota.",
-            "url": "https://kfminsurance.com/#guide"
+            "url": "https://kfminsurance.com/guia-base"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 7,
             "name": "Offices in Rota",
             "description": "Downtown Rota & Base Naval Office by the Autoport.",
-            "url": "https://kfminsurance.com/#locations"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 8,
-            "name": "Frequently Asked Questions",
-            "description": "Answers about VPC pickup, US spec vehicles, and English-speaking roadside claims.",
-            "url": "https://kfminsurance.com/#faq"
+            "url": "https://kfminsurance.com/oficinas"
           }
         ]
       },
@@ -190,7 +183,7 @@
   </script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261006_3">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261006_5">
   <link rel="icon" type="image/png" href="assets/img/favicon-48.png">
 </head>
 <body>
@@ -226,19 +219,19 @@
   <!-- MAIN NAVIGATION -->
   <header class="navbar">
     <div class="container navbar-inner">
-      <a href="#top" class="brand-logo-wrap" title="KFM Insurance">
+      <a href="/" data-route="home" class="brand-logo-wrap" title="KFM Insurance">
         <img src="assets/img/logo.png" alt="KFM Insurance Logo" class="brand-logo" width="160" height="60">
       </a>
 
       <!-- Desktop & Mobile Menu -->
       <nav class="nav-menu" id="navMenu">
-        <a href="#auto-insurance" class="nav-link" data-i18n="nav_auto">Auto & POV</a>
-        <a href="#renters-insurance" class="nav-link" data-i18n="nav_home">Renters Insurance</a>
-        <a href="#dgt-transfers" class="nav-link" data-i18n="nav_dgt">DGT Transfers</a>
-        <a href="#policy-transfers" class="nav-link" data-i18n="nav_policy">Policy Transfers</a>
-        <a href="#bundle-save" class="nav-link" data-i18n="nav_bundle">Bundle & Save</a>
-        <a href="#guide" class="nav-link" data-i18n="nav_guide">Base Guide</a>
-        <a href="#locations" class="nav-link" data-i18n="nav_locations">Locations</a>
+        <a href="/seguro-auto" data-route="auto" class="nav-link" data-i18n="nav_auto">Auto & POV</a>
+        <a href="/seguro-hogar" data-route="renters" class="nav-link" data-i18n="nav_home">Hogar e Inquilinos</a>
+        <a href="/transferencias-dgt" data-route="dgt" class="nav-link" data-i18n="nav_dgt">Transferencias DGT</a>
+        <a href="/traspaso-polizas" data-route="policy" class="nav-link" data-i18n="nav_policy">Traspaso Pólizas</a>
+        <a href="/combina-ahorra" data-route="bundle" class="nav-link" data-i18n="nav_bundle">Combina y Ahorra</a>
+        <a href="/guia-base" data-route="guide" class="nav-link" data-i18n="nav_guide">Base Guide</a>
+        <a href="/oficinas" data-route="locations" class="nav-link" data-i18n="nav_locations">Locations</a>
 
         <!-- Mobile-Only Info Inside Hamburger Drawer -->
         <div class="nav-mobile-info">
@@ -285,7 +278,7 @@
       </nav>
 
       <div class="nav-cta-wrap">
-        <a href="#quote-calculator" class="btn btn-primary" data-i18n="nav_quote_btn">Get a Quote</a>
+        <a href="/cotizador" data-route="quote" class="btn btn-primary" data-i18n="nav_quote_btn">Get a Quote</a>
         <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -325,8 +318,8 @@
             </div>
 
             <div class="hero-actions">
-              <a href="#quote-calculator" class="btn btn-accent btn-lg" data-i18n="hero_cta_quote">Start Instant Quote</a>
-              <a href="#locations" class="btn btn-outline-white btn-lg" data-i18n="hero_cta_contact">Talk to an Agent</a>
+              <a href="/cotizador" data-route="quote" class="btn btn-accent btn-lg" data-i18n="hero_cta_quote">Start Instant Quote</a>
+              <a href="/oficinas" data-route="locations" class="btn btn-outline-white btn-lg" data-i18n="hero_cta_contact">Talk to an Agent</a>
             </div>
           </div>
 
@@ -471,7 +464,7 @@
                 </li>
               </ul>
               <div class="service-card-footer">
-                <a href="#quote-calculator" class="btn btn-secondary btn-sm" data-i18n="srv_auto_btn">Quote Auto / POV</a>
+                <a href="/cotizador" data-route="quote" class="btn btn-secondary btn-sm" data-i18n="srv_auto_btn">Quote Auto / POV</a>
               </div>
             </div>
           </article>
@@ -502,7 +495,7 @@
                 </li>
               </ul>
               <div class="service-card-footer">
-                <a href="#quote-calculator" class="btn btn-secondary btn-sm" data-i18n="srv_home_btn">Quote Renters</a>
+                <a href="/cotizador" data-route="quote" class="btn btn-secondary btn-sm" data-i18n="srv_home_btn">Quote Renters</a>
               </div>
             </div>
           </article>
@@ -533,7 +526,7 @@
                 </li>
               </ul>
               <div class="service-card-footer">
-                <a href="#quote-calculator" class="btn btn-secondary btn-sm" data-i18n="srv_dgt_btn">Request DGT Service</a>
+                <a href="/cotizador" data-route="quote" class="btn btn-secondary btn-sm" data-i18n="srv_dgt_btn">Request DGT Service</a>
               </div>
             </div>
           </article>
@@ -564,7 +557,7 @@
                 </li>
               </ul>
               <div class="service-card-footer">
-                <a href="#quote-calculator" class="btn btn-secondary btn-sm" data-i18n="srv_policy_btn">Transfer a Policy</a>
+                <a href="/cotizador" data-route="quote" class="btn btn-secondary btn-sm" data-i18n="srv_policy_btn">Transfer a Policy</a>
               </div>
             </div>
           </article>
@@ -595,13 +588,13 @@
                 </li>
               </ul>
               <div class="service-card-footer">
-                <a href="#quote-calculator" class="btn btn-secondary btn-sm" data-i18n="srv_bundle_btn">Explore Bundle Savings</a>
+                <a href="/cotizador" data-route="quote" class="btn btn-secondary btn-sm" data-i18n="srv_bundle_btn">Explore Bundle Savings</a>
               </div>
             </div>
           </article>
 
           <!-- Service 6: Claims & Roadside Assistance -->
-          <article class="service-card">
+          <article class="service-card" id="claims">
             <div class="service-card-media">
               <img src="assets/img/roadside-assistance.jpg" alt="Claims & Roadside Assistance" class="service-card-img" loading="lazy">
               <span class="service-card-badge" data-i18n="srv_claims_badge">24/7 English Support</span>
@@ -696,7 +689,7 @@
             <h3 data-i18n="guide_banner_title">Selling or Buying a Vehicle in Rota?</h3>
             <p data-i18n="guide_banner_desc">We provide professional assistance with official DGT vehicle transfers and policy transfers so you can transfer your existing insurance to the buyer.</p>
           </div>
-          <a href="#quote-calculator" class="btn btn-accent btn-lg" data-i18n="guide_banner_btn">Contact KFM Insurance</a>
+          <a href="/cotizador" data-route="quote" class="btn btn-accent btn-lg" data-i18n="guide_banner_btn">Contact KFM Insurance</a>
         </div>
       </div>
     </section>
@@ -1135,13 +1128,13 @@
         <div>
           <h3 class="footer-title" data-i18n="footer_links_title">Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="#auto-insurance" data-i18n="nav_auto">Auto & POV Insurance</a></li>
-            <li><a href="#renters-insurance" data-i18n="nav_home">Renters Insurance</a></li>
-            <li><a href="#dgt-transfers" data-i18n="nav_dgt">Official DGT Vehicle Transfers</a></li>
-            <li><a href="#policy-transfers" data-i18n="nav_policy">Policy Transfers</a></li>
-            <li><a href="#bundle-save" data-i18n="nav_bundle">Bundle & Save</a></li>
-            <li><a href="#guide" data-i18n="nav_guide">Military Arrival Guide</a></li>
-            <li><a href="#quote-calculator" data-i18n="nav_quote_btn">Get a Quote</a></li>
+            <li><a href="/seguro-auto" data-route="auto" data-i18n="nav_auto">Auto & POV Insurance</a></li>
+            <li><a href="/seguro-hogar" data-route="renters" data-i18n="nav_home">Renters Insurance</a></li>
+            <li><a href="/transferencias-dgt" data-route="dgt" data-i18n="nav_dgt">Official DGT Vehicle Transfers</a></li>
+            <li><a href="/traspaso-polizas" data-route="policy" data-i18n="nav_policy">Policy Transfers</a></li>
+            <li><a href="/combina-ahorra" data-route="bundle" data-i18n="nav_bundle">Bundle & Save</a></li>
+            <li><a href="/guia-base" data-route="guide" data-i18n="nav_guide">Military Arrival Guide</a></li>
+            <li><a href="/cotizador" data-route="quote" data-i18n="nav_quote_btn">Get a Quote</a></li>
           </ul>
         </div>
 
@@ -1204,8 +1197,8 @@
   </div>
 
   <!-- SCRIPTS -->
-  <script src="assets/js/app.js?v=20261006_3"></script>
-  <script src="assets/js/quote.js?v=20261006_3"></script>
+  <script src="assets/js/app.js?v=20261006_5"></script>
+  <script src="assets/js/quote.js?v=20261006_5"></script>
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>

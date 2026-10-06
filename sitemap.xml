@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home Page -->
   <url>
     <loc>https://kfminsurance.com/</loc>
     <lastmod>2026-10-06</lastmod>
@@ -8,5 +9,149 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/" />
+  </url>
+
+  <!-- Auto & POV Insurance -->
+  <url>
+    <loc>https://kfminsurance.com/seguro-auto</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/seguro-auto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/auto-insurance" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/auto-insurance</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/auto-insurance" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/seguro-auto" />
+  </url>
+
+  <!-- Renters / Hogar Insurance -->
+  <url>
+    <loc>https://kfminsurance.com/seguro-hogar</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/seguro-hogar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/renters-insurance" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/renters-insurance</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/renters-insurance" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/seguro-hogar" />
+  </url>
+
+  <!-- Official DGT Transfers -->
+  <url>
+    <loc>https://kfminsurance.com/transferencias-dgt</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/transferencias-dgt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/dgt-transfers" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/dgt-transfers</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/dgt-transfers" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/transferencias-dgt" />
+  </url>
+
+  <!-- Policy Transfers -->
+  <url>
+    <loc>https://kfminsurance.com/traspaso-polizas</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/traspaso-polizas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/policy-transfers" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/policy-transfers</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/policy-transfers" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/traspaso-polizas" />
+  </url>
+
+  <!-- Bundle & Save -->
+  <url>
+    <loc>https://kfminsurance.com/combina-ahorra</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/combina-ahorra" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/bundle-save" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/bundle-save</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/bundle-save" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/combina-ahorra" />
+  </url>
+
+  <!-- Military Arrival Guide -->
+  <url>
+    <loc>https://kfminsurance.com/guia-base</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/guia-base" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/military-guide" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/military-guide</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/military-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/guia-base" />
+  </url>
+
+  <!-- Physical Offices in Rota -->
+  <url>
+    <loc>https://kfminsurance.com/oficinas</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/oficinas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/locations" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/locations</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/locations" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/oficinas" />
+  </url>
+
+  <!-- Quote Calculator -->
+  <url>
+    <loc>https://kfminsurance.com/cotizador</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/cotizador" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/quote-calculator" />
+  </url>
+  <url>
+    <loc>https://kfminsurance.com/quote-calculator</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kfminsurance.com/quote-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://kfminsurance.com/cotizador" />
   </url>
 </urlset>

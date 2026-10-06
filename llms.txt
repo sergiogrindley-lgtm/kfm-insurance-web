@@ -6,12 +6,12 @@ KFM Insurance is a bilingual insurance agency based in Rota, Spain, serving US m
 
 ## Core Services
 
-- [Auto & POV Insurance](https://kfminsurance.com/#auto-insurance): Comprehensive and liability insurance for US-spec and European vehicles. Instant Green Card (Carta Verde) printed on the spot for VPC pickup and Pass & Decal registration. 24/7 European roadside assistance from KM 0.
-- [Renters Insurance](https://kfminsurance.com/#renters-insurance): Content, furniture, electronics, and tenant liability coverage fully compliant with US Navy Housing Office and Spanish lease requirements.
-- [Official DGT Vehicle Transfers](https://kfminsurance.com/#dgt-transfers): Professional assistance with vehicle transfer of ownership, matriculation, and registration with the Spanish DGT (Dirección General de Tráfico).
-- [Policy Transfers](https://kfminsurance.com/#policy-transfers): Transfer an existing auto insurance policy to the new vehicle buyer when selling during a PCS, eliminating cancellation fees.
-- [Bundle & Save](https://kfminsurance.com/#bundle-save): Save on renters insurance when bundled with auto insurance, plus multi-vehicle discounts for existing clients.
-- [Military Arrival Guide](https://kfminsurance.com/#guide): Step-by-step guidance for military arrivals in Rota: VPC pickup, insurance issuance, Pass & Decal, and home rental compliance.
+- [Auto & POV Insurance](https://kfminsurance.com/auto-insurance): Comprehensive and liability insurance for US-spec and European vehicles. Instant Green Card (Carta Verde) printed on the spot for VPC pickup and Pass & Decal registration. 24/7 European roadside assistance from KM 0.
+- [Renters Insurance](https://kfminsurance.com/renters-insurance): Content, furniture, electronics, and tenant liability coverage fully compliant with US Navy Housing Office and Spanish lease requirements.
+- [Official DGT Vehicle Transfers](https://kfminsurance.com/dgt-transfers): Professional assistance with vehicle transfer of ownership, matriculation, and registration with the Spanish DGT (Dirección General de Tráfico).
+- [Policy Transfers](https://kfminsurance.com/policy-transfers): Transfer an existing auto insurance policy to the new vehicle buyer when selling during a PCS, eliminating cancellation fees.
+- [Bundle & Save](https://kfminsurance.com/bundle-save): Save on renters insurance when bundled with auto insurance, plus multi-vehicle discounts for existing clients.
+- [Military Arrival Guide](https://kfminsurance.com/military-guide): Step-by-step guidance for military arrivals in Rota: VPC pickup, insurance issuance, Pass & Decal, and home rental compliance.
 
 ## Physical Offices & Contact Information
 
@@ -26,4 +26,4 @@ KFM Insurance is a bilingual insurance agency based in Rota, Spain, serving US m
 
 AI agents can interact directly with our services using the WebMCP protocol tools exposed on `https://kfminsurance.com/`:
 - `requestInsuranceQuote`: Form and tool to submit quote requests for Auto, Renters, DGT, or Policy transfer.
-- Direct quote navigation: `https://kfminsurance.com/#quote-calculator`
+- Direct quote navigation: `https://kfminsurance.com/quote-calculator`

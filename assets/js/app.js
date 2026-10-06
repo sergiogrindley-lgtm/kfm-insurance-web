@@ -466,8 +466,124 @@
     }
   };
 
+  // --- Route Definitions (Clean permalinks, NO #) ---
+  const routes = {
+    home: {
+      targetId: null,
+      es: '/',
+      en: '/'
+    },
+    auto: {
+      targetId: 'auto-insurance',
+      es: '/seguro-auto',
+      en: '/auto-insurance'
+    },
+    renters: {
+      targetId: 'renters-insurance',
+      es: '/seguro-hogar',
+      en: '/renters-insurance'
+    },
+    dgt: {
+      targetId: 'dgt-transfers',
+      es: '/transferencias-dgt',
+      en: '/dgt-transfers'
+    },
+    policy: {
+      targetId: 'policy-transfers',
+      es: '/traspaso-polizas',
+      en: '/policy-transfers'
+    },
+    bundle: {
+      targetId: 'bundle-save',
+      es: '/combina-ahorra',
+      en: '/bundle-save'
+    },
+    guide: {
+      targetId: 'guide',
+      es: '/guia-base',
+      en: '/military-guide'
+    },
+    locations: {
+      targetId: 'locations',
+      es: '/oficinas',
+      en: '/locations'
+    },
+    quote: {
+      targetId: 'quote-calculator',
+      es: '/cotizador',
+      en: '/quote-calculator'
+    }
+  };
+
+  // Helper: Match a pathname or hash to a known route
+  function matchRoute(pathOrHash) {
+    if (!pathOrHash) return null;
+    const clean = pathOrHash.replace(/^[#/]+/, '').trim().toLowerCase();
+    if (!clean) return { route: 'home', lang: null };
+
+    // Direct route check
+    for (const [key, config] of Object.entries(routes)) {
+      const esClean = config.es.replace(/^\//, '').toLowerCase();
+      const enClean = config.en.replace(/^\//, '').toLowerCase();
+      if (clean === esClean) return { route: key, lang: 'es' };
+      if (clean === enClean) return { route: key, lang: 'en' };
+      if (config.targetId && clean === config.targetId.toLowerCase()) {
+        return { route: key, lang: null };
+      }
+    }
+
+    // Common aliases for seamless compatibility
+    if (['hogar', 'inquilinos', 'seguro-inquilinos', 'seguros-hogar'].includes(clean)) {
+      return { route: 'renters', lang: 'es' };
+    }
+    if (['auto', 'coche', 'pov', 'seguros-auto'].includes(clean)) {
+      return { route: 'auto', lang: 'es' };
+    }
+    if (['dgt', 'trafico', 'transferencias', 'matriculas'].includes(clean)) {
+      return { route: 'dgt', lang: 'es' };
+    }
+    if (['polizas', 'traspaso', 'traspasos', 'pcs'].includes(clean)) {
+      return { route: 'policy', lang: 'es' };
+    }
+    if (['bundle', 'combina', 'ahorra', 'descuento'].includes(clean)) {
+      return { route: 'bundle', lang: 'es' };
+    }
+    if (['guia', 'base', 'guia-militar', 'arrival-guide'].includes(clean)) {
+      return { route: 'guide', lang: 'es' };
+    }
+    if (['oficina', 'contacto', 'contact', 'donde-estamos'].includes(clean)) {
+      return { route: 'locations', lang: 'es' };
+    }
+    if (['quote', 'presupuesto', 'cotizar', 'calculadora'].includes(clean)) {
+      return { route: 'quote', lang: 'es' };
+    }
+
+    return null;
+  }
+
+  function navigateToRoute(routeKey, pushState = true) {
+    const config = routes[routeKey];
+    if (!config) return;
+
+    if (config.targetId) {
+      const targetEl = document.getElementById(config.targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const cleanPath = config[currentLang] || config.es;
+    if (pushState && window.history && window.history.pushState) {
+      if (window.location.pathname !== cleanPath) {
+        window.history.pushState({ route: routeKey }, '', cleanPath);
+      }
+    }
+  }
+
   // --- State ---
-  let currentLang = 'en'; // Default to English for Naval Station demographic
+  let currentLang = 'en'; // Default fallback
 
   // Initialize Language
   function initLanguage() {
@@ -475,8 +591,14 @@
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
 
+    // First check if current URL path indicates language
+    const currentPath = window.location.pathname;
+    const pathMatch = matchRoute(currentPath);
+
     if (langParam === 'es' || langParam === 'en') {
       currentLang = langParam;
+    } else if (pathMatch && pathMatch.lang) {
+      currentLang = pathMatch.lang;
     } else if (saved === 'es' || saved === 'en') {
       currentLang = saved;
     } else {
@@ -526,6 +648,24 @@
         el.placeholder = translations[lang][key];
       }
     });
+
+    // Update all route links href according to active language
+    document.querySelectorAll('a[data-route]').forEach(link => {
+      const routeKey = link.getAttribute('data-route');
+      if (routes[routeKey]) {
+        link.setAttribute('href', routes[routeKey][lang]);
+      }
+    });
+
+    // If current URL matches a route in the other language, sync URL cleanly
+    const currentPath = window.location.pathname;
+    const match = matchRoute(currentPath);
+    if (match && routes[match.route]) {
+      const newPath = routes[match.route][lang];
+      if (window.history && window.history.replaceState && currentPath !== newPath) {
+        window.history.replaceState({ route: match.route }, '', newPath);
+      }
+    }
   }
 
   // Bind Language Buttons
@@ -565,56 +705,121 @@
     });
   }
 
-  // Smooth scroll for all internal anchor links WITHOUT exposing # (hash) in browser URL
-  function initSmoothScrollWithoutHash() {
-    // If browser URL currently contains a hash (e.g. from previous load), clean it immediately:
+  // Clean Permalinks & Smooth Scroll Router (NEVER exposes '#' in URL)
+  function initCleanRouting() {
+    // 1. Check if URL has a legacy hash (e.g. #renters-insurance or #hogar)
+    let routeFound = null;
+
     if (window.location.hash) {
-      const targetHash = window.location.hash;
-      try {
-        const initialTarget = document.querySelector(targetHash);
-        if (initialTarget) {
-          setTimeout(() => {
-            initialTarget.scrollIntoView({ behavior: 'smooth' });
-          }, 80);
-        }
-      } catch (err) {}
+      const hashMatch = matchRoute(window.location.hash);
+      if (hashMatch) {
+        routeFound = hashMatch;
+      }
+    }
+
+    // 2. If no hash, inspect pathname (e.g. /seguro-hogar or /renters-insurance)
+    if (!routeFound && window.location.pathname && window.location.pathname !== '/') {
+      const pathMatch = matchRoute(window.location.pathname);
+      if (pathMatch) {
+        routeFound = pathMatch;
+      }
+    }
+
+    // 3. If a route was detected:
+    if (routeFound && routeFound.route !== 'home') {
+      const config = routes[routeFound.route];
+      const targetPath = config ? (config[currentLang] || config.es) : '/';
+
+      // Always strip '#' and ensure clean permalink in address bar
       if (window.history && window.history.replaceState) {
+        window.history.replaceState({ route: routeFound.route }, '', targetPath);
+      }
+
+      // Smooth scroll to target element
+      if (config && config.targetId) {
+        setTimeout(() => {
+          const targetEl = document.getElementById(config.targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 120);
+      }
+    } else {
+      // Clean any rogue hash if present
+      if (window.location.hash && window.history && window.history.replaceState) {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
     }
 
-    // Intercept clicks on any internal anchor
+    // Listen to browser Back / Forward buttons
+    window.addEventListener('popstate', () => {
+      const match = matchRoute(window.location.pathname);
+      if (match && routes[match.route]) {
+        if (match.lang && match.lang !== currentLang) {
+          setLanguage(match.lang);
+        }
+        navigateToRoute(match.route, false);
+      } else if (window.location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Global Click Delegation for Clean Navigation (NO '#')
     document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#"]');
+      const link = e.target.closest('a');
       if (!link) return;
 
-      const hash = link.getAttribute('href');
-      if (!hash || hash === '#') return;
+      const routeKey = link.getAttribute('data-route');
+      const href = link.getAttribute('href');
 
-      e.preventDefault();
-
-      // Close mobile menu drawer if open
-      const menu = document.querySelector('.nav-menu');
-      const toggle = document.querySelector('.mobile-toggle');
-      if (menu && menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      // Ignore external links, mailto:, tel:, target="_blank", etc.
+      if (!href || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || link.target === '_blank') {
+        return;
       }
 
-      if (hash === '#top') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        try {
-          const target = document.querySelector(hash);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+      // Match route
+      let matchedRoute = routeKey;
+      if (!matchedRoute) {
+        const match = matchRoute(href);
+        if (match) matchedRoute = match.route;
+      }
+
+      if (matchedRoute && routes[matchedRoute]) {
+        e.preventDefault();
+
+        // Close mobile drawer if open
+        const menu = document.querySelector('.nav-menu');
+        const toggle = document.querySelector('.mobile-toggle');
+        if (menu && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        navigateToRoute(matchedRoute, true);
+        return;
+      }
+
+      // Handle raw hash links like href="#top" or internal anchors
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        if (targetId === 'top' || !targetId) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/');
           }
-        } catch (err) {}
-      }
-
-      // CRITICAL: Clean address bar - NEVER show #hash in browser URL
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        } else {
+          const match = matchRoute(targetId);
+          if (match && routes[match.route]) {
+            navigateToRoute(match.route, true);
+          } else {
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+            if (window.history && window.history.replaceState) {
+              window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+          }
+        }
       }
     });
   }
@@ -746,7 +951,7 @@
     bindLanguageButtons();
     initStickyNavbar();
     initMobileNav();
-    initSmoothScrollWithoutHash();
+    initCleanRouting();
     initFAQ();
     initModalEvents();
     initWebMCP();
