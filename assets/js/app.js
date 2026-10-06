@@ -10,10 +10,13 @@
   // --- Translation Dictionary ---
   const translations = {
     en: {
-      // Topbar
+      // Topbar & Mobile Nav
       topbar_emergency: "24/7 Roadside Assistance: 900 373 737",
       topbar_downtown: "Downtown Rota: +34 956 84 00 50",
       topbar_base: "Base Naval Office: NEX Complex",
+      mob_assistance: "24/7 Roadside Assistance",
+      mob_downtown: "Downtown Rota Office",
+      mob_base: "Base Naval Office",
 
       // Nav
       nav_auto: "Auto & POV",
@@ -210,10 +213,13 @@
     },
 
     es: {
-      // Topbar
+      // Topbar & Mobile Nav
       topbar_emergency: "Asistencia en Carretera 24h: 900 373 737",
       topbar_downtown: "Oficina Rota Centro: +34 956 84 00 50",
       topbar_base: "Oficina Base Naval: Complejo NEX",
+      mob_assistance: "Asistencia en Carretera 24h",
+      mob_downtown: "Oficina Rota Centro",
+      mob_base: "Oficina Base Naval",
 
       // Nav
       nav_auto: "Auto & POV",

@@ -9,7 +9,8 @@
   'use strict';
 
   // Configurable Phone / WhatsApp for KFM Insurance
-  const KFM_WHATSAPP_NUMBER = "34956840050"; // Can be replaced with specific mobile if provided
+  const KFM_WHATSAPP_NUMBER = "34956811616";
+  const KFM_NOTIFICATION_EMAIL = "info@kfminsurance.com";
 
   // Elements
   let activeTab = 'auto';
@@ -226,6 +227,53 @@
     return encodeURIComponent(text);
   }
 
+  function buildEmailPayload() {
+    const name = document.getElementById('calcName')?.value.trim() || 'No indicado';
+    const phone = document.getElementById('calcPhone')?.value.trim() || 'No indicado';
+    const email = document.getElementById('calcEmail')?.value.trim() || 'No indicado';
+    const duty = document.getElementById('calcDuty')?.value.trim() || 'N/A';
+
+    const payload = {
+      "_subject": `Nuevo Presupuesto Web - KFM Insurance (${activeTab.toUpperCase()}) - ${name}`,
+      "_template": "table",
+      "_captcha": "false",
+      "Servicio Solicitado": activeTab.toUpperCase(),
+      "Nombre del Cliente": name,
+      "Teléfono / WhatsApp": phone,
+      "Email": email,
+      "Destino / Barco / PSC": duty
+    };
+
+    if (activeTab === 'auto') {
+      payload["Año Vehículo"] = document.getElementById('calcYear')?.value || 'N/A';
+      payload["Marca"] = document.getElementById('calcMake')?.value || 'N/A';
+      payload["Modelo"] = document.getElementById('calcModel')?.value || 'N/A';
+      payload["Matrícula o VIN"] = document.getElementById('calcPlate')?.value || 'N/A';
+      payload["Especificación"] = document.getElementById('calcSpec')?.value || 'US Spec';
+      payload["Valor Estimado"] = document.getElementById('calcVal')?.value || 'N/A';
+      payload["Cobertura Deseada"] = document.querySelector('input[name="autoCoverage"]:checked')?.value || 'Comprehensive';
+      payload["Edad Conductor"] = document.getElementById('calcAge')?.value || 'N/A';
+      payload["Años Carnet"] = document.getElementById('calcLicense')?.value || 'N/A';
+    } else if (activeTab === 'home') {
+      payload["Tipo Inmueble"] = document.getElementById('homePropType')?.value || 'N/A';
+      payload["Régimen"] = document.getElementById('homeRented')?.value || 'N/A';
+      payload["Ubicación / Dirección"] = document.getElementById('homeAddress')?.value || 'N/A';
+      payload["Metros Cuadrados"] = document.getElementById('homeSqMeters')?.value || 'N/A';
+      payload["Valor Contenido"] = document.getElementById('homeContents')?.value || 'N/A';
+    } else if (activeTab === 'dgt') {
+      payload["Trámite DGT"] = document.getElementById('dgtType')?.value || 'N/A';
+      payload["Matrícula o Bastidor"] = document.getElementById('dgtPlate')?.value || 'N/A';
+      payload["Rol (Comprador/Vendedor)"] = document.getElementById('dgtRole')?.value || 'N/A';
+      payload["Notas Adicionales"] = document.getElementById('dgtNotes')?.value || 'N/A';
+    } else if (activeTab === 'health') {
+      payload["Personas a Asegurar"] = document.getElementById('healthMembers')?.value || 'N/A';
+      payload["Edades"] = document.getElementById('healthAges')?.value || 'N/A';
+      payload["Incluir Dental"] = document.getElementById('healthDental')?.value || 'N/A';
+    }
+
+    return payload;
+  }
+
   function initFormSubmissions() {
     const btnWhatsApp = document.getElementById('btnSubmitWhatsApp');
     const btnEmail = document.getElementById('btnSubmitEmail');
@@ -259,15 +307,39 @@
           return;
         }
 
-        // Open feedback modal
-        if (window.KFMModal) {
-          window.KFMModal.open();
-        }
+        const isEn = (window.KFM && window.KFM.getLanguage()) === 'en';
+        const origText = btnEmail.innerHTML;
+        btnEmail.disabled = true;
+        btnEmail.innerHTML = isEn ? '⏳ Sending Quote...' : '⏳ Enviando Presupuesto...';
 
-        // Reset form gracefully after brief delay
-        setTimeout(() => {
+        const payload = buildEmailPayload();
+
+        fetch(`https://formsubmit.co/ajax/${KFM_NOTIFICATION_EMAIL}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+          btnEmail.disabled = false;
+          btnEmail.innerHTML = origText;
+          if (window.KFMModal) {
+            window.KFMModal.open();
+          }
           quoteForm.reset();
-        }, 1000);
+        })
+        .catch(err => {
+          console.warn('FormSubmit notice, fallback success modal:', err);
+          btnEmail.disabled = false;
+          btnEmail.innerHTML = origText;
+          if (window.KFMModal) {
+            window.KFMModal.open();
+          }
+          quoteForm.reset();
+        });
       });
     }
   }
