@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KFM INSURANCE & PATRIA GESTORÍA — Modern Lightweight Web Stylesheet
+   KFM INSURANCE — Modern Lightweight Web Stylesheet
    Color Palette: Deep Mediterranean Blue (#145a78), Ocean Cerulean (#00739c),
    Emerald Green (#059669), Slate (#475569), Clean Background (#f8fafc)
    ========================================================================== */
@@ -695,7 +695,7 @@ section[id], [id] {
 
 @media (min-width: 1024px) {
   .services-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

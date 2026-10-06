@@ -1,7 +1,7 @@
 /**
- * KFM Insurance & Patria Gestoría
+ * KFM Insurance
  * Interactive Quote Engine & Lead Submission
- * Supports: Auto/POV, Home/Renters, DGT Transfers, Health
+ * Supports: Auto/POV, Renters, DGT Transfers, Policy Transfers & Bundle
  * Outputs: Pre-formatted WhatsApp message + Form Webhook / Email capture
  */
 
@@ -192,14 +192,14 @@
       const phone = document.getElementById('calcPhone')?.value || '';
 
       text += isEn
-        ? `*Service:* Patria Gestoría DGT Tráfico\n` +
+        ? `*Service:* Official DGT Vehicle Transfer\n` +
           `*Procedure:* ${serviceType}\n` +
           `*Plate / VIN:* ${plate}\n` +
           `*Role:* ${buyerSeller}\n` +
           `*Notes:* ${notes}\n` +
           `*Client Name:* ${name}\n` +
           `*Phone:* ${phone}\n`
-        : `*Servicio:* Patria Gestoría Tráfico DGT\n` +
+        : `*Servicio:* Transferencia Oficial de Vehículos DGT\n` +
           `*Trámite:* ${serviceType}\n` +
           `*Matrícula / VIN:* ${plate}\n` +
           `*Rol:* ${buyerSeller}\n` +
@@ -207,7 +207,34 @@
           `*Nombre:* ${name}\n` +
           `*Teléfono:* ${phone}\n`;
 
-    } else { // health
+    } else if (activeTab === 'policy') {
+      const transferType = document.getElementById('policyType')?.value || 'Transfer policy to buyer when selling vehicle';
+      const plateVin = document.getElementById('policyPlate')?.value || 'N/A';
+      const policyNum = document.getElementById('policyNumber')?.value || 'N/A';
+      const bundle = document.getElementById('policyBundle')?.value || 'No';
+      const notes = document.getElementById('policyNotes')?.value || '';
+      const name = document.getElementById('calcName')?.value || 'Customer';
+      const phone = document.getElementById('calcPhone')?.value || '';
+
+      text += isEn
+        ? `*Service:* Policy Transfer & Bundle Inquiry\n` +
+          `*Request Type:* ${transferType}\n` +
+          `*Plate / VIN:* ${plateVin}\n` +
+          `*Current Policy #:* ${policyNum}\n` +
+          `*Bundle Discount:* ${bundle}\n` +
+          `*Notes:* ${notes}\n` +
+          `*Client Name:* ${name}\n` +
+          `*Phone:* ${phone}\n`
+        : `*Servicio:* Traspaso de Póliza y Consulta Bundle\n` +
+          `*Tipo Solicitud:* ${transferType}\n` +
+          `*Matrícula / VIN:* ${plateVin}\n` +
+          `*Nº Póliza:* ${policyNum}\n` +
+          `*Descuento Bundle:* ${bundle}\n` +
+          `*Detalles:* ${notes}\n` +
+          `*Nombre:* ${name}\n` +
+          `*Teléfono:* ${phone}\n`;
+
+    } else { // health / other
       const people = document.getElementById('healthMembers')?.value || '1';
       const ages = document.getElementById('healthAges')?.value || 'N/A';
       const dental = document.getElementById('healthDental')?.value || 'Yes';
@@ -268,6 +295,12 @@
       payload["Matrícula o Bastidor"] = document.getElementById('dgtPlate')?.value || 'N/A';
       payload["Rol (Comprador/Vendedor)"] = document.getElementById('dgtRole')?.value || 'N/A';
       payload["Notas Adicionales"] = document.getElementById('dgtNotes')?.value || 'N/A';
+    } else if (activeTab === 'policy') {
+      payload["Tipo de Traspaso / Solicitud"] = document.getElementById('policyType')?.value || 'N/A';
+      payload["Matrícula o Bastidor"] = document.getElementById('policyPlate')?.value || 'N/A';
+      payload["Número de Póliza Actual"] = document.getElementById('policyNumber')?.value || 'N/A';
+      payload["Consulta Bundle / Vehículo Adicional"] = document.getElementById('policyBundle')?.value || 'N/A';
+      payload["Notas Adicionales"] = document.getElementById('policyNotes')?.value || 'N/A';
     } else if (activeTab === 'health') {
       payload["Personas a Asegurar"] = document.getElementById('healthMembers')?.value || 'N/A';
       payload["Edades"] = document.getElementById('healthAges')?.value || 'N/A';
